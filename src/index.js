@@ -2,10 +2,12 @@ const express = require('express')
 const morgan = require('morgan')
 const { engine } = require ('express-handlebars');
 const path = require('path');
+const db=require('./config/db')
 const app = express()
 const port = 3000
 //connect route
 const route=require('./routes')
+db.connect();
 //set static file
 app.use(express.static(path.join(__dirname, 'public')))
 //HTTP logger
